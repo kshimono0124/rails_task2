@@ -1,0 +1,27 @@
+<div class="container room-show">
+	<div class="row">
+		<div class="col-md-8">
+			<%= image_tag @room.image.url, onerror: "this.onerror=null;this.src='/assets/room01.jpg';", alt: "部屋画像", class: "room-show-image" %>
+
+			<div class="room-show-detile">
+				<div class="room-show-detile-icon">
+					<a href="/">
+					<% if current_user.image? %>
+						  <%= image_tag current_user.image.url, class: "host-icon" %>
+					<% else %>
+						  <%= image_tag "default_icon.jpg", class: "host-icon" %>
+					<% end %>
+					</a>
+				</div>
+				<div class="room-show-profile">
+					<p class="room-show-profile-name"><%= @room.name %></p>
+					<p class="room-show-profile-address"><%= @room.address %></p>
+				</div>
+			</div>
+			<p class="room-show-detile-content"><%= @room.content %></p>
+		</div>
+		
+		<%= render 'reservations/form' %>
+		
+	</div>
+</div>
