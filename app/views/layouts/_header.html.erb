@@ -3,20 +3,20 @@
 		<div class="header-left-nav">
 			<a href="/"><img alt="サイトのロゴ画像" src="/assets/logo.png" /></a>
 			
-			<%= search_form_for @q, url: search_rooms_path do |f| %>
-			
-				<div class="header-sharch d-lg-inline-block d-none">
-					<%= f.search_field :name_cont, class: "form-control", :placeholder => "エリア" %>
-					<i class="fas fa-map-marker-alt"></i>
-				</div>
+				<%= form_with url: search_rooms_path do |f| %>
 				
-				<div class="header-sharch d-lg-inline-block d-none">
-					<%= f.search_field :name_cont, class: "form-control", :placeholder => "キーワード" %>
-					<i class="fas fa-search"></i>
-				</div>
-				<%= f.submit '', class: "d-none" %>
-				
-			<% end %>
+					<div class="header-sharch d-lg-inline-block d-none">
+						<%= f.text_field :name, class: "form-control", :placeholder => "エリア" %>
+						<i class="fas fa-map-marker-alt"></i>
+					</div>
+					
+					<div class="header-sharch d-lg-inline-block d-none">
+						<%= f.text_field :name, class: "form-control", :placeholder => "キーワード" %>
+						<i class="fas fa-search"></i>
+					</div>
+					<%= f.submit '', class: "d-none" %>
+					
+				<% end %>
 
 		</div>
 		<div class="header-right-nav">
